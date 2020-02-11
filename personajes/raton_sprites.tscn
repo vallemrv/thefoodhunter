@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/mapa_sprites.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 35, 382, 196, 254 )
+
+[node name="raton_sprites" type="Node2D"]
+editor/display_folded = true
+visible = false
+
+[node name="pata_int" type="Sprite" parent="."]
+position = Vector2( 0.805693, -12.4543 )
+rotation = -0.199914
+texture = ExtResource( 1 )
+offset = Vector2( 17.6516, 40.7238 )
+region_enabled = true
+region_rect = Rect2( 335, 433, 51, 108 )
+
+[node name="cuerpo_completo" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( -5.67298, 0.502839 )
+rotation = 0.0373544
+scale = Vector2( 1, 1 )
+
+[node name="cabeza_completa" type="Sprite" parent="cuerpo_completo"]
+editor/display_folded = true
+position = Vector2( 1.45784, -233.804 )
+rotation = -0.142244
+
+[node name="oreja2" type="Sprite" parent="cuerpo_completo/cabeza_completa"]
+position = Vector2( -12.5664, -161.224 )
+rotation = 0.140575
+texture = ExtResource( 1 )
+offset = Vector2( -39.0822, -28.7688 )
+region_enabled = true
+region_rect = Rect2( 242, 33, 129, 139 )
+
+[node name="cabeza" type="Sprite" parent="cuerpo_completo/cabeza_completa"]
+position = Vector2( 36.8025, -74.3518 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 38.447, 182.084, 233.753, 194.325 )
+
+[node name="oreja" type="Sprite" parent="cuerpo_completo/cabeza_completa"]
+position = Vector2( -37.3261, -124.288 )
+texture = ExtResource( 1 )
+offset = Vector2( -45.7719, -44.6881 )
+region_enabled = true
+region_rect = Rect2( 47.0632, 41.7711, 140.156, 137.598 )
+
+[node name="rabo" type="Sprite" parent="cuerpo_completo"]
+position = Vector2( -57.6877, -36.2509 )
+rotation = -0.445666
+texture = ExtResource( 1 )
+offset = Vector2( -52.9672, 0.202087 )
+region_enabled = true
+region_rect = Rect2( 70, 650, 136, 22 )
+
+[node name="cuerpo" type="Sprite" parent="cuerpo_completo"]
+position = Vector2( -0.502533, -113.601 )
+texture = SubResource( 2 )
+
+[node name="brazo_ext" type="Sprite" parent="cuerpo_completo"]
+position = Vector2( 5.84816, -163.822 )
+rotation = 0.135102
+z_index = 16
+texture = ExtResource( 1 )
+offset = Vector2( 53.9854, 30.2202 )
+region_enabled = true
+region_rect = Rect2( 281, 197, 126, 82 )
+region_filter_clip = true
+
+[node name="brazo_int" type="Sprite" parent="cuerpo_completo"]
+position = Vector2( 13.1922, -161.855 )
+rotation = 0.0915315
+z_index = -10
+texture = ExtResource( 1 )
+offset = Vector2( 57.1642, 19.0888 )
+region_enabled = true
+region_rect = Rect2( 331, 320, 140, 54 )
+
+[node name="Position2D" type="Position2D" parent="cuerpo_completo"]
+position = Vector2( -5.2828, -98.8335 )
+
+[node name="pata_ext" type="Sprite" parent="."]
+position = Vector2( -11.978, -6.88591 )
+rotation = 0.00109666
+texture = ExtResource( 1 )
+offset = Vector2( 12.9592, 33.255 )
+region_enabled = true
+region_rect = Rect2( 241, 449, 59, 106 )
