@@ -4,7 +4,7 @@
 [ext_resource path="res://animations/idle.tres" type="Animation" id=2]
 [ext_resource path="res://sprites/mapa_sprites.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=1]
 resource_name = "jump_down"
 loop = true
 step = 0.01
@@ -381,7 +381,7 @@ tracks/30/keys = {
 "values": [ -51.4541 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 resource_name = "jump_up"
 length = 0.5
 loop = true
@@ -771,8 +771,7 @@ tracks/31/keys = {
 "values": [ Vector2( 1.54, 0.3 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "run"
+[sub_resource type="Animation" id=3]
 loop = true
 step = 0.01
 tracks/0/type = "value"
@@ -1136,39 +1135,39 @@ tracks/29/keys = {
 "values": [ -56.7931 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 120.011
-height = 219.747
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 107.09
+height = 261.531
 
-[sub_resource type="AnimationNodeAnimation" id=3]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "jump_down"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "jump_up"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=6]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=9]
 
-[sub_resource type="AnimationNodeStateMachine" id=7]
-states/idle/node = SubResource( 3 )
-states/idle/position = Vector2( 89.5, 69.5 )
-states/jump_down/node = SubResource( 13 )
-states/jump_down/position = Vector2( 337.5, 157.625 )
-states/jump_up/node = SubResource( 14 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachine" id=11]
+states/idle/node = SubResource( 5 )
+states/idle/position = Vector2( 107.5, 43 )
+states/jump_down/node = SubResource( 6 )
+states/jump_down/position = Vector2( 338, 157.188 )
+states/jump_up/node = SubResource( 7 )
 states/jump_up/position = Vector2( 119.5, 156.75 )
-states/run/node = SubResource( 4 )
+states/run/node = SubResource( 8 )
 states/run/position = Vector2( 273, 70.25 )
-transitions = [ "run", "idle", SubResource( 6 ), "idle", "run", SubResource( 9 ) ]
+transitions = [ "run", "idle", SubResource( 9 ), "idle", "run", SubResource( 10 ) ]
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( -4.31903, -4.31903 )
@@ -1181,21 +1180,19 @@ current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = ExtResource( 2 )
-anims/jump_down = SubResource( 12 )
-anims/jump_up = SubResource( 10 )
-anims/run = SubResource( 2 )
+anims/jump_down = SubResource( 1 )
+anims/jump_up = SubResource( 2 )
+anims/run = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 5.39868, -164.123 )
-shape = SubResource( 1 )
+position = Vector2( 2.42533, -162.96 )
+scale = Vector2( 1.37409, 1.03115 )
+shape = SubResource( 4 )
 
 [node name="view_player" type="Node2D" parent="."]
 
 [node name="player_polygon" type="Node2D" parent="view_player"]
 editor/display_folded = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="orejaR" type="Polygon2D" parent="view_player/player_polygon"]
 position = Vector2( -51.3242, -339.823 )
@@ -1283,19 +1280,18 @@ uv = PoolVector2Array( 185.507, 647.391, 67.1498, 647.874, 72.9469, 659.952, 99.
 bones = [ NodePath("hip"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/rabo"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("hip/torso"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/cuello"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/cuello/cabeza"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/cuello/cabeza/orejaR"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/cuello/cabeza/orejaL"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/cuello/cabeza/hocizo"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/brazoL"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/brazoL/antebrazoL"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/brazoL/antebrazoL/manoL"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/brazoR"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/brazoR/antebrazoL"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/torso/brazoR/antebrazoL/manoL"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/piernaL"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/piernaL/pieL"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/piernaR"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("hip/piernaR/pieR"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="view_player"]
+editor/display_folded = true
 position = Vector2( -7.26109, -98.459 )
 rotation = 0.0373544
-scale = Vector2( 1, 1 )
 
 [node name="hip" type="Bone2D" parent="view_player/Skeleton2D"]
 position = Vector2( -5.39795, 93.0513 )
 rotation = -1.58948
-scale = Vector2( 1, 1 )
 rest = Transform2D( -0.0186863, -0.999825, 0.999825, -0.0186863, -5.39795, 93.0513 )
 
 [node name="rabo" type="Bone2D" parent="view_player/Skeleton2D/hip"]
 position = Vector2( 42.078, -48.3071 )
-rotation = -1.53536
+rotation = -1.85797
 scale = Vector2( 1.35648, 2.46509 )
 rest = Transform2D( 0.0480649, -1.35563, 2.46354, 0.0873467, 42.078, -48.3071 )
 default_length = 70.0
@@ -1322,7 +1318,7 @@ default_length = 116.0
 
 [node name="orejaL" type="Bone2D" parent="view_player/Skeleton2D/hip/torso/cuello/cabeza"]
 position = Vector2( -32.129, -14.6809 )
-rotation = -2.94009
+rotation = -2.94008
 scale = Vector2( 0.922304, 1.34313 )
 rest = Transform2D( -0.903642, -0.184596, 0.993689, -0.903642, -32.129, -14.6809 )
 default_length = 116.0
@@ -1336,7 +1332,7 @@ default_length = 116.0
 
 [node name="hocizo" type="Bone2D" parent="view_player/Skeleton2D/hip/torso/cuello/cabeza"]
 position = Vector2( 77.5858, -8.40551 )
-rotation = -0.087638
+rotation = -0.00847095
 scale = Vector2( 0.986337, 1.07056 )
 rest = Transform2D( 0.982552, -0.08633, 0.0937012, 1.06645, 77.5858, -8.40551 )
 default_length = 80.0
@@ -1384,14 +1380,14 @@ rest = Transform2D( -0.966738, 0.297607, -0.69049, -2.24296, 18.5436, 29.5454 )
 
 [node name="musloL" type="Bone2D" parent="view_player/Skeleton2D/hip/piernaL"]
 position = Vector2( 27.034, -4.06994 )
-rotation = -0.991226
+rotation = -0.991227
 scale = Vector2( 0.698967, 1.4826 )
 rest = Transform2D( 0.435555, -0.546669, 1.15956, 0.923869, 27.034, -4.06994 )
 default_length = 20.0
 
 [node name="pieL" type="Bone2D" parent="view_player/Skeleton2D/hip/piernaL/musloL"]
-position = Vector2( 22.1998, 26.3009 )
-rotation = 0.166036
+position = Vector2( 26.355, 24.1539 )
+rotation = 0.529776
 rest = Transform2D( 0.999134, 0.0196218, -0.0196945, 1.00283, 36.4748, 33.2716 )
 default_length = 20.0
 
@@ -1410,9 +1406,12 @@ default_length = 20.0
 
 [node name="pieR" type="Bone2D" parent="view_player/Skeleton2D/hip/piernaR/musloR"]
 position = Vector2( 15.489, 24.154 )
+rotation = -0.0613
+scale = Vector2( 0.932466, 1 )
 rest = Transform2D( 1, 0, 0, 1, 37.5163, 32.3151 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 7 )
+tree_root = SubResource( 11 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 8 )
+active = true
+parameters/playback = SubResource( 12 )
